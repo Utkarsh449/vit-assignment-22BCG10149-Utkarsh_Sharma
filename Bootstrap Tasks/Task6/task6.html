@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Form Validation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form class="needs-validation" novalidate>
+                    <!-- Name Field -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="invalid-feedback">Name is required</div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Email is required</div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback">Password is required</div>
+                    </div>
+
+                    <!-- Hobbies Field -->
+                    <div class="mb-3">
+                        <label for="hobbies" class="form-label">Hobbies</label>
+                        <select class="form-select" id="hobbies">
+                            <option value="">Select a hobby</option>
+                            <option value="reading">Reading</option>
+                            <option value="sports">Sports</option>
+                            <option value="music">Music</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="btn btn-danger w-100" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Form Validation Script -->
+    <script>
+        (function () {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+
+</body>
+</html>
