@@ -1,0 +1,42 @@
+/* Header Styles */
+.header {
+    background-color: #00bcd4;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: gray;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+/* Align right links */
+.navbar .right-links {
+    float: right;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #5a5a5a;
+    color: white;
+    padding: 15px;
+    min-height: 400px;
+}
+
+/* Main Content */
+.content {
+    padding: 20px;
+    text-align: center;
+    min-height: 400px;
+}
