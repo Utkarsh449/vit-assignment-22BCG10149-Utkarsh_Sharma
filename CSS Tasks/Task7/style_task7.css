@@ -1,0 +1,77 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #8b2e48; /* Dark maroon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form container */
+.container {
+    background-color: #a03b5e; /* Lighter maroon */
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form elements */
+h2 {
+    text-align: center;
+    color: white;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Gender radio button alignment */
+.gender-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gender-container label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: white;
+    color: #a03b5e;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #f2f2f2;
+}
