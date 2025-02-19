@@ -1,0 +1,59 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Material Card Styling */
+.material-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+    background: #fff;
+}
+
+.material-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Card Image with Overlay */
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+}
+
+/* Card Footer Links */
+.card-footer {
+    background: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-footer a {
+    text-decoration: none;
+    color: #ffa726;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.card-footer a:hover {
+    color: #ff9800;
+}
