@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #train {
+        width: 400px;
+        height: 200px;
+        position: relative;
+      }
+      .track {
+        width: 100%;
+        float: left;
+      }
+        .buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Click the following buttons to handle animation</h2>
+
+    <div class="track">
+        <img src="train.png" class="train" id="train">
+    </div>
+
+    <div class="buttons">
+        <button onclick="startTrain()">Start</button>
+        <button onclick="stopTrain()">Stop</button>
+    </div>
+
+    <script>
+        let train = document.getElementById("train");
+        let position = 0;
+        let trainMoving;
+
+        function startTrain() {
+            clearInterval(trainMoving); // Prevent multiple intervals
+            trainMoving = setInterval(() => {
+                if (position > 450) { // Reset position when it reaches the end
+                    position = 0;
+                }
+                position += 5; // Move the train forward
+                train.style.left = position + "px";
+            }, 100);
+        }
+
+        function stopTrain() {
+            clearInterval(trainMoving); // Stop the animation
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .input-error {
+            border: 2px solid red;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let isValid = true;
+
+            // Get form values
+            let name = document.getElementById("name");
+            let email = document.getElementById("email");
+            let website = document.getElementById("website");
+            let message = document.getElementById("message");
+
+            // Get error elements
+            let nameError = document.getElementById("nameError");
+            let emailError = document.getElementById("emailError");
+            let websiteError = document.getElementById("websiteError");
+            let messageError = document.getElementById("messageError");
+
+            // Name validation
+            if (name.value.trim() === "") {
+                nameError.innerText = "This field is required";
+                name.classList.add("input-error");
+                isValid = false;
+            } else {
+                nameError.innerText = "";
+                name.classList.remove("input-error");
+            }
+
+            // Email validation
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email.value.trim())) {
+                emailError.innerText = "A valid email address is required";
+                email.classList.add("input-error");
+                isValid = false;
+            } else {
+                emailError.innerText = "";
+                email.classList.remove("input-error");
+            }
+
+            // Website validation
+            let websitePattern = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+            if (!websitePattern.test(website.value.trim())) {
+                websiteError.innerText = "A valid URL is required";
+                website.classList.add("input-error");
+                isValid = false;
+            } else {
+                websiteError.innerText = "";
+                website.classList.remove("input-error");
+            }
+
+            // Message validation
+            if (message.value.trim() === "") {
+                messageError.innerText = "This field is required";
+                message.classList.add("input-error");
+                isValid = false;
+            } else {
+                messageError.innerText = "";
+                message.classList.remove("input-error");
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <h2>Form Validation</h2>
+    <form onsubmit="return validateForm(event)">
+        <label>Name:</label>
+        <input type="text" id="name">
+        <span class="error" id="nameError"></span>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="text" id="email">
+        <span class="error" id="emailError"></span>
+        <br><br>
+
+        <label>Website:</label>
+        <input type="text" id="website">
+        <span class="error" id="websiteError"></span>
+        <br><br>
+
+        <label>Message:</label>
+        <textarea id="message"></textarea>
+        <span class="error" id="messageError"></span>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #fdf3d1, #d58bdd);
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        h2 {
+            color: blue;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        input, select, textarea {
+            width: 60%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            justify-content: left;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .btn {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: darkred;
+        }
+        .declaration {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .footer a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+
+            <div class="input-group">
+                <label>First Name:</label>
+                <input type="text" id="firstName">
+                <span class="error" id="firstNameError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Last Name:</label>
+                <input type="text" id="lastName">
+                <span class="error" id="lastNameError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Email:</label>
+                <input type="email" id="email">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Password:</label>
+                <input type="password" id="password">
+                <span class="error" id="passwordError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Re-enter Password:</label>
+                <input type="password" id="confirmPassword">
+                <span class="error" id="confirmPasswordError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                </div>
+                <span class="error" id="genderError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Age:</label>
+                <input type="number" id="age">
+                <span class="error" id="ageError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number:</label>
+                <input type="text" id="phone">
+                <span class="error" id="phoneError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Address:</label>
+                <textarea id="address"></textarea>
+                <span class="error" id="addressError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>State:</label>
+                <input type="text" id="state">
+                <span class="error" id="stateError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Country:</label>
+                <select id="country">
+                    <option value="">Choose your country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                </select>
+                <span class="error" id="countryError"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Languages Known:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="languages" value="English"> English
+                    <input type="checkbox" name="languages" value="Kannada"> Kannada
+                    <input type="checkbox" name="languages" value="Hindi"> Hindi
+                    <input type="checkbox" name="languages" value="Telugu"> Telugu
+                </div>
+                <span class="error" id="languageError"></span>
+            </div>
+
+            <div class="declaration">
+                <input type="checkbox" id="declaration"> I hereby declare all given details are true
+                <span class="error" id="declarationError"></span>
+            </div>
+
+            <button type="submit" class="btn">REGISTER</button>
+        </form>
+
+        <div class="footer">
+            Log in to <a href="#">Ethnus</a> website
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let isValid = true;
+
+            function showError(id, message) {
+                document.getElementById(id).innerText = message;
+                isValid = false;
+            }
+
+            function clearError(id) {
+                document.getElementById(id).innerText = "";
+            }
+
+            let firstName = document.getElementById("firstName").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let declaration = document.getElementById("declaration").checked;
+
+            if (firstName === "") showError("firstNameError", "POOR");
+            else clearError("firstNameError");
+
+            if (!email.includes("@")) showError("emailError", "POOR");
+            else clearError("emailError");
+
+            if (password.length < 6) showError("passwordError", "POOR");
+            else clearError("passwordError");
+
+            if (password !== confirmPassword) showError("confirmPasswordError", "POOR OR MISMATCH");
+            else clearError("confirmPasswordError");
+
+            if (!gender) showError("genderError", "Select Gender");
+            else clearError("genderError");
+
+            if (!declaration) showError("declarationError", "You must agree");
+            else clearError("declarationError");
+
+            if (isValid) alert("Registration Successful!");
+        });
+    </script>
+
+</body>
+</html>
